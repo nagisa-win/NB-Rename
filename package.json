@@ -7,8 +7,8 @@
         "node": ">=20.0.0"
     },
     "scripts": {
-        "start": "electron .",
-        "build": "webpack && electron .",
+        "start": "webpack && electron .",
+        "build": "webpack --mode production",
         "package": "webpack --mode production && electron-builder",
         "package:mac": "webpack --mode production && electron-builder --mac",
         "package:win": "webpack --mode production && electron-builder --win",
@@ -25,7 +25,7 @@
     "author": "nagisa-win",
     "license": "MIT",
     "build": {
-        "appId": "me.v88to.rename",
+        "appId": "run.steven.rename",
         "productName": "NB Rename",
         "mac": {
             "category": "public.app-category.utilities"
