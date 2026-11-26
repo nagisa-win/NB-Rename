@@ -29,5 +29,17 @@ jobs:
     - name: Build
       run: |
         pnpm install
-        pnpm run package
+        # 只构建产物，不向 GitHub Release 发布，避免缺少 GH_TOKEN 时失败
+        pnpm run package -- --publish never
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: nb-rename-node${{ matrix.node-version }}
+        path: |
+          dist/*.AppImage
+          dist/*.deb
+          dist/*.exe
+        if-no-files-found: ignore
+        retention-days: 14
     
