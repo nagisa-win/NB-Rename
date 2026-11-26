@@ -22,7 +22,10 @@
         "utility",
         "cross-platform"
     ],
-    "author": "nagisa-win",
+    "author": {
+        "name": "nagisa-win",
+        "email": "59007326+nagisa-win@users.noreply.github.com"
+    },
     "license": "MIT",
     "build": {
         "appId": "run.steven.rename",
