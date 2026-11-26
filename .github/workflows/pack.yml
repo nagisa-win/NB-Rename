@@ -29,8 +29,10 @@ jobs:
     - name: Build
       run: |
         pnpm install
+        # 显式调用，避免 pnpm run 把分隔符 -- 一起传给 electron-builder
+        pnpm exec webpack --mode production
         # 只构建产物，不向 GitHub Release 发布，避免缺少 GH_TOKEN 时失败
-        pnpm run package -- --publish never
+        pnpm exec electron-builder --publish never
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
